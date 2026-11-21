@@ -5,3 +5,19 @@ __pycache__/
 .env
 
 app_v2_backup.py
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Local backups
+app_backup.py
+app_backup_before_v4.py
+
+# AI assistant configuration
+.agents/
+.claude/
+
+# macOS
+.DS_Store
