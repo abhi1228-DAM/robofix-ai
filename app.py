@@ -276,6 +276,44 @@ if st.button(
     with st.spinner("Collecting ROS 2 information..."):
         results, live_report = collect_diagnostics()
 
+    from fault_detector import detect_faults
+
+    st.subheader("Automatic Fault Detection")
+
+    expected_nodes = ["/talker"]
+    expected_topics = ["/chatter", "/imu"]
+
+    errors = [
+        output
+        for output in results.values()
+        if (
+            "Command failed with exit code" in output
+            or "Diagnostic timed out" in output
+            or "Docker CLI not found" in output
+        )
+    ]
+
+    if errors:
+        st.error(
+            "Some diagnostic checks failed. "
+            "Missing resources cannot be confirmed."
+        )
+    else:
+        faults = detect_faults(
+            results,
+            expected_nodes=expected_nodes,
+            expected_topics=expected_topics,
+        )
+
+        if faults:
+            for fault in faults:
+                st.warning(
+                    f"{fault['type']}: {fault['name']} — "
+                    f"{fault['details']}"
+                )
+        else:
+            st.success("All expected ROS resources were detected.")
+
     for title, output in results.items():
         with st.expander(title, expanded=True):
             st.code(output, language="text")
