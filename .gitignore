@@ -21,3 +21,4 @@ app_backup_before_v4.py
 
 # macOS
 .DS_Store
+app_backup_before_v5.py
