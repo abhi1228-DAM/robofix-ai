@@ -344,6 +344,32 @@ if st.button(
                 st.subheader("Live AI Analysis")
                 st.markdown(analysis)
 
+                from command_validator import (
+                    extract_commands,
+                    validate_command,
+                )
+
+                st.subheader("AI Command Validation")
+
+                commands = extract_commands(analysis)
+
+                if not commands:
+                    st.info(
+                        "No standalone ROS 2 commands found "
+                        "in the AI analysis."
+                    )
+                else:
+                    for command in commands:
+                        valid, reason = validate_command(command)
+
+                        if valid:
+                            st.success(f"Recognized: {command}")
+                        else:
+                            st.warning(f"Needs review: {command}")
+
+                        st.caption(reason)
+
+
             except Exception as exc:
                 st.error(
                     "AI analysis failed: "
