@@ -22,3 +22,8 @@ app_backup_before_v4.py
 # macOS
 .DS_Store
 app_backup_before_v5.py
+
+# Development backups
+app_backup_before_ai_fix.py
+live_diagnostics_backup.py
+live_diagnostics_before_daemon_fix.py
