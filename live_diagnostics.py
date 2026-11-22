@@ -15,7 +15,7 @@ def collect_diagnostics():
         try:
             process = subprocess.run(
                 [
-                    "docker", "exec", CONTAINER,
+                    "docker", "exec", "--user", "ubuntu", CONTAINER,
                     "bash", "-lc",
                     "source /opt/ros/humble/setup.bash && "
                     + command,
