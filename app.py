@@ -338,6 +338,16 @@ if st.button(
                     "Distinguish missing nodes from "
                     "confirmed faults. "
                     "Do not invent command results.\n\n"
+                    + "\nVerified live ROS 2 observations:\n"
+                    + "ROS 2 nodes:\n"
+                    + results.get("ROS 2 Nodes", "")
+                    + "\nROS 2 topics:\n"
+                    + results.get("ROS 2 Topics", "")
+                    + "\nUse these observations as facts. "
+                    + "If /talker is listed, do not claim "
+                    + "that no ROS 2 nodes are running. "
+                    + "Do not assume the Docker container "
+                    + "has stopped when diagnostics succeed.\n\n"
                     + live_report
                 )
 
