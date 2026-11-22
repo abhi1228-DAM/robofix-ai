@@ -27,3 +27,8 @@ app_backup_before_v5.py
 app_backup_before_ai_fix.py
 live_diagnostics_backup.py
 live_diagnostics_before_daemon_fix.py
+
+# Release backups
+README_before_release.md
+requirements_before_release.txt
+requirements_before_cleanup.txt
