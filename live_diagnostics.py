@@ -3,7 +3,7 @@ import subprocess
 CONTAINER = "autofleet-desktop"
 
 CHECKS = {
-    "ROS 2 Nodes": "ros2 node list",
+    "ROS 2 Nodes": "ros2 node list --no-daemon",
     "ROS 2 Topics": "ros2 topic list",
     "ROS 2 Services": "ros2 service list",
 }
