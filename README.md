@@ -121,3 +121,23 @@ GitHub: [@abhi1228-DAM](https://github.com/abhi1228-DAM)
 LinkedIn: [abhi1228-dam](https://www.linkedin.com/in/abhi1228-dam/)
 
 Built for **Homingo Hack Days 2026**.
+
+## Testing
+
+Run the automated diagnostic tests:
+
+```bash
+PYTHONPATH=. .venv/bin/python -m unittest discover -s tests -v
+```
+
+The tests cover:
+
+- Detection of missing ROS 2 nodes and topics
+- Verification when expected resources are present
+- Recognition of supported diagnostic commands
+- Rejection of unsupported command forms
+- Basic AI command extraction
+
+These tests validate selected diagnostic functions.
+They do not establish complete ROS 2 system reliability.
+
